@@ -26,9 +26,11 @@ while True:
         print(f"Clientes cadastrados: \n{listaClientes}")
         print(f"\n{nome}, seu cadastro foi realizado com sucesso!")
     elif acao == 2:
-        print("Digite o CPF do cliente que você deseja consultar o saldo\n")
+        print("Digite o CPF do cliente que você deseja consultar o saldo.\n")
         buscaCPF = int(input("CPF: "))
         for i in listaClientes:
             for cpf in i:
                 if cpf == buscaCPF:
                     print(f"Saldo de {i[0]}: {i[6]} reais")
+                else:
+                    print("CPF incorreto ou não cadastrado.")        
