@@ -1,9 +1,9 @@
-lista=[]
-
+listaDeListas=[]
 
 
 
 while True:
+    userLista = []
     try:
         nome = (input("digite o seu nome: "))
     except:
@@ -20,9 +20,15 @@ while True:
     while True:
         sexo = input("digite o seu sexo (F ou M): ").lower()
         if sexo == "f" or sexo == "m":
-            print("TA CERTO")
+            break
         else:
             print("ta errado")
+    while True:
+        cpf = (input("cpf: "))
+        if len(cpf) < 11 or len(cpf) > 11:
+            print("CPF inválido")
+        else:
+            break
     try:
         endereco = input("digite o seu endereço: ")
     except:
@@ -35,4 +41,23 @@ while True:
         estado = input("digite o seu estado: ")
     except:
         print("apenas letras!")
+    userLista.append(nome)
+    userLista.append(idade)
+    userLista.append(sexo)
+    userLista.append(cpf)
+    userLista.append(endereco)
+    userLista.append(cidade)
+    userLista.append(estado)
+    listaDeListas.append(userLista)
+    with open("exercicioApp/arquivo.txt","w") as arquivo:
+        for pessoa in listaDeListas:
+            linha = ", ".join([str(item) for item in pessoa])
+            arquivo.write(linha + "\n")
+    acao = int(input("1. para cadastrar mais uma pessoa\n2. para consultar o banco\n3. para encerrar\nescolha: "))
+    if acao == 1:
+        continue
+
+    elif acao == 3:
+        print("fim")
+        break
     
