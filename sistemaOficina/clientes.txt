@@ -1,1 +1,4 @@
-{'Nome': 'rthur', 'cpf': 123, 'telefone': 456}
+
+{'Nome': 'arthur', 'cpf': 123, 'telefone': 333, 'veiculo': ''}
+{'Nome': 'teste', 'cpf': 456, 'telefone': 444, 'veiculo': ''}
+{'Nome': 'art', 'cpf': 123, 'telefone': 333, 'veiculo': <function cadastrarVeiculo at 0x0000018337C13E20>}
