@@ -67,10 +67,6 @@ def cadastrarVeiculo():
         except ValueError:
             print("CPF inválido.")
 
-
-
-
-
 while True:
     def sistema():
         print("Bem Vindo ao sistema da Oficina.")
@@ -83,5 +79,4 @@ while True:
                 cadastrarCliente()
             elif acao2 == 2:
                 cadastrarVeiculo()
-            
     sistema()
