@@ -1,1 +1,1 @@
-{'placa': 'QWE', 'modelo': 'werwet', 'ano': 12345}
+QWE;qweqwqwe;12312;123

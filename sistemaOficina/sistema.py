@@ -1,11 +1,13 @@
 # Sistema Oficina sem importações complexas nem dict, zip ou estruturas difíceis
 
+CAMINHO = "sistemaOficina/"
+
 # Cadastro
 
 def cadastrarCliente():
     cpf = input("CPF: ")
     try:
-        with open("clientes.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "clientes.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 if linha.startswith(cpf + ";"):
                     print("CPF já cadastrado.")
@@ -14,14 +16,14 @@ def cadastrarCliente():
         pass
     nome = input("Nome completo: ")
     telefone = input("Telefone: ")
-    with open("clientes.txt", "a", encoding="utf-8") as f:
+    with open(CAMINHO + "clientes.txt", "a", encoding="utf-8") as f:
         f.write(cpf + ";" + nome + ";" + telefone + "\n")
     print("Cliente cadastrado.")
 
 def cadastrarVeiculo():
     placa = input("Placa: ").upper()
     try:
-        with open("veiculos.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "veiculos.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 if linha.startswith(placa + ";"):
                     print("Placa já cadastrada.")
@@ -33,7 +35,7 @@ def cadastrarVeiculo():
     cpf = input("CPF do proprietário: ")
     encontrado = False
     try:
-        with open("clientes.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "clientes.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 if linha.startswith(cpf + ";"):
                     encontrado = True
@@ -43,7 +45,7 @@ def cadastrarVeiculo():
     if not encontrado:
         print("Cliente não encontrado.")
         return
-    with open("veiculos.txt", "a", encoding="utf-8") as f:
+    with open(CAMINHO + "veiculos.txt", "a", encoding="utf-8") as f:
         f.write(placa + ";" + modelo + ";" + ano + ";" + cpf + "\n")
     print("Veículo cadastrado.")
 
@@ -56,7 +58,7 @@ def cadastrarOS():
     cliente_ok = False
     veiculo_ok = False
     try:
-        with open("clientes.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "clientes.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 if linha.startswith(cpf + ";"):
                     cliente_ok = True
@@ -64,7 +66,7 @@ def cadastrarOS():
     except:
         pass
     try:
-        with open("veiculos.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "veiculos.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 if linha.startswith(placa + ";"):
                     veiculo_ok = True
@@ -77,7 +79,7 @@ def cadastrarOS():
     if not veiculo_ok:
         print("Veículo não encontrado.")
         return
-    with open("ordens_servico.txt", "a", encoding="utf-8") as f:
+    with open(CAMINHO + "ordens_servico.txt", "a", encoding="utf-8") as f:
         f.write(numero + ";" + descricao + ";" + valor + ";" + cpf + ";" + placa + "\n")
     print("OS cadastrada.")
 
@@ -87,20 +89,19 @@ def excluirCliente():
     cpf = input("CPF do cliente a excluir: ")
     linhas = []
     try:
-        with open("clientes.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "clientes.txt", "r", encoding="utf-8") as f:
             linhas = f.readlines()
-        with open("clientes.txt", "w", encoding="utf-8") as f:
+        with open(CAMINHO + "clientes.txt", "w", encoding="utf-8") as f:
             for linha in linhas:
                 if not linha.startswith(cpf + ";"):
                     f.write(linha)
     except:
         print("Erro ao excluir cliente.")
 
-    # Excluir veículos e OS também
     try:
-        with open("veiculos.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "veiculos.txt", "r", encoding="utf-8") as f:
             veiculos = f.readlines()
-        with open("veiculos.txt", "w", encoding="utf-8") as f:
+        with open(CAMINHO + "veiculos.txt", "w", encoding="utf-8") as f:
             for linha in veiculos:
                 if not linha.strip().endswith(";" + cpf):
                     f.write(linha)
@@ -108,9 +109,9 @@ def excluirCliente():
         pass
 
     try:
-        with open("ordens_servico.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "ordens_servico.txt", "r", encoding="utf-8") as f:
             ordens = f.readlines()
-        with open("ordens_servico.txt", "w", encoding="utf-8") as f:
+        with open(CAMINHO + "ordens_servico.txt", "w", encoding="utf-8") as f:
             for linha in ordens:
                 if ";" + cpf + ";" not in linha:
                     f.write(linha)
@@ -122,9 +123,9 @@ def excluirCliente():
 def excluirVeiculo():
     placa = input("Placa do veículo a excluir: ").upper()
     try:
-        with open("veiculos.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "veiculos.txt", "r", encoding="utf-8") as f:
             linhas = f.readlines()
-        with open("veiculos.txt", "w", encoding="utf-8") as f:
+        with open(CAMINHO + "veiculos.txt", "w", encoding="utf-8") as f:
             for linha in linhas:
                 if not linha.startswith(placa + ";"):
                     f.write(linha)
@@ -134,9 +135,9 @@ def excluirVeiculo():
 def excluirOS():
     numero = input("Número da OS a excluir: ")
     try:
-        with open("ordens_servico.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "ordens_servico.txt", "r", encoding="utf-8") as f:
             linhas = f.readlines()
-        with open("ordens_servico.txt", "w", encoding="utf-8") as f:
+        with open(CAMINHO + "ordens_servico.txt", "w", encoding="utf-8") as f:
             for linha in linhas:
                 if not linha.startswith(numero + ";"):
                     f.write(linha)
@@ -148,7 +149,7 @@ def excluirOS():
 def consultarVeiculosPorCPF():
     cpf = input("Digite o CPF: ")
     try:
-        with open("veiculos.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "veiculos.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 dados = linha.strip().split(";")
                 if dados[3] == cpf:
@@ -159,7 +160,7 @@ def consultarVeiculosPorCPF():
 def consultarOS():
     chave = input("Digite o CPF ou número da OS: ")
     try:
-        with open("ordens_servico.txt", "r", encoding="utf-8") as f:
+        with open(CAMINHO + "ordens_servico.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 if chave in linha:
                     print(linha.strip())
