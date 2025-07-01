@@ -1,3 +1,1 @@
-
-{'placa': 'qwe', 'modelo': 'ferrari', 'ano': 3030}
-{'placa': 'qweqwe', 'modelo': 'dsdff', 'ano': 3033}
+{'placa': 'QWE', 'modelo': 'werwet', 'ano': 12345}
