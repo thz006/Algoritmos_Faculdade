@@ -1,0 +1,16 @@
+//exemplo de "input" em java que no caso é o Scanner.
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    //printar inteiros %d
+	    //printar strings %s
+	    //printar double %f
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite um número: ");
+        int number = scan.nextInt();
+        System.out.println("o numero digitado foi: "+number);
+	}
+}

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    //printar inteiros %d
+	    //printar strings %s
+	    //printar double %f
+
+	    String nome = "Arthur";
+        String sobrenome = "Santoro Gomes";
+        String cidade = "Campo Grande";
+        String estado = "Mato Grosso do Sul";
+        String hobby = "Estudar";
+        
+        System.out.printf("Olá %s %s, você mora em %s no estado de %s e seu hobby é %s.",nome,sobrenome,cidade,estado,hobby);
+	}
+}

@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    System.out.print("boa noite gurizes!!!");
+		System.out.print("aula inicial");
+	}
+}
+
+
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    //printar inteiros %d
+	    //printar strings %s
+	    //printar double %f
+
+	    System.out.println("boa noite gurizes!!!");
+		System.out.println("aula inicial");
+	}
+}
+
+
+
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    //printar inteiros %d
+	    //printar strings %s
+	    //printar double %f
+
+	    String nome = "Arthur";
+	    int idade = 18;
+	    System.out.printf("ola %s você é muito legal e tem %d anos",nome,idade);
+	    System.out.println("\nola "+nome+" você é incrível e tem "+idade+" anos");
+	}
+}

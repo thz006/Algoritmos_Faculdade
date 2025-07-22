@@ -1,0 +1,11 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    System.out.println("olá gurizes!!!");
+	    String nome = "arthur santoro gomes";
+        double altura = 1.85;
+	    int idade = 18;
+	    System.out.println("Bem vindo "+nome+", você tem "+idade+" anos e possuí "+altura+" metros de altura!!");
+	}
+}
